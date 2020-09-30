@@ -166,7 +166,27 @@ footer {
 .todoDiv img {
    width: 25px;
 }
+.onTop{
+   width: 85%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0px;
+   background: #dee2e3;
+   display: flex;
+   justify-content: space-between;
+   align-items:center;
+   padding: 20px 10px;
+ opacity: 0;
+ 
+}
 
+.editBtn{
+   width: 150px;
+   height: 150px;
+   padding: 5px;
+   border: 1px solid red;
+}
 .deleted {
    border: 3px solid red;
    color: red;
@@ -178,7 +198,14 @@ footer {
    animation: fadeInLeft;
    animation-duration: 500ms;
 }
-
+.traySlideLeft{
+   opacity: 1;
+   border-radius: 0 10px 10px 0;
+      animation: slideInRight;
+      animation-duration: 700ms;
+      
+   
+}
 /* Customize the label (the container) */
 .container {
    display: block;

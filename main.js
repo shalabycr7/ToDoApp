@@ -71,7 +71,11 @@ localStorage.setItem("mainHTML", mainSec.innerHTML);
 }
 }
 if(e.target.className==='menuIcon'){
-   console.log('menu')
+   
+let q=document.querySelector('.onTop');
+//q.style.animation='hh 1s alternate';
+q.classList.toggle('traySlideLeft')
+console.log('nb')
 }
    });
    }
