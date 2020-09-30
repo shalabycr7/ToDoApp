@@ -48,11 +48,12 @@ let isChecked = () => {
    let chs = document.getElementsByClassName("todoDiv");
    for (let ch of chs) {
       ch.addEventListener("click", (e) => {
+         let target = e.currentTarget;
  if (e.target.className === "checkInput") {
    if (e.target.checked) {
       e.currentTarget.classList.add("deleted");
    e.currentTarget.classList.remove("slideIn");
-   let target = e.currentTarget;
+   //
    let imgChild=target.children[2];
   imgChild.remove();
    setTimeout(() => {
@@ -61,7 +62,13 @@ localStorage.setItem("mainHTML", mainSec.innerHTML);
 },500,target);
 }
 }
+if(e.target.className==='menuIcon'){
+   overlay(0,'block');
+}
    });
    }
 };
 isChecked();
+function overlay(index,state){
+   document.querySelectorAll('.overlay')[index].style.display=state
+}

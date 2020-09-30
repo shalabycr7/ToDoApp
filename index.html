@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ToDo App</title>
-    <link
+  <!--  <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-    /> 
+    /> -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -17,7 +17,18 @@
         <h2>ToDo</h2>
         <img src="pics/plus-circle.svg" alt="add ToDo icon" id="addBtn" />
       </header>
-
+<div class="overlay">
+   <div class="overlayCont">
+      <div class="overlayHeader">
+         <input type="text" name="title" id="title" placeholder="Enter Task" />
+         <img src="pics/times-circle.svg" alt="" id="closeBtn"/>
+      </div>
+      <div class="overlayTextArea">
+         <h3>Description</h3>
+         <textarea name="desTextArea" id=desTextArea rows="8" cols="40"></textarea>
+      </div>
+   </div>
+</div>
       <main>
         <section class="todoDiv slideIn">
           <label class="container"
@@ -28,73 +39,7 @@
           <img class="menuIcon" src="pics/ellipsis-h.svg" alt="menu icon" />
         </section>
         
-         <section class="todoDiv slideIn">
-          <label class="container"
-            ><input type="checkbox" class="checkInput" />
 
-            <span class="checkmark"></span>
-          </label>
-
-          <h3 class="listnNaming">ToDo Name</h3>
-
-          <img src="pics/ellipsis-h.svg" alt="menu icon" />
-        </section>
-         <section class="todoDiv slideIn">
-          <label class="container"
-            ><input type="checkbox" class="checkInput" />
-
-            <span class="checkmark"></span>
-          </label>
-
-          <h3 class="listnNaming">ToDo Name</h3>
-
-          <img src="pics/ellipsis-h.svg" alt="menu icon" />
-        </section>
-         <section class="todoDiv slideIn">
-          <label class="container"
-            ><input type="checkbox" class="checkInput" />
-
-            <span class="checkmark"></span>
-          </label>
-
-          <h3 class="listnNaming">ToDo Name</h3>
-
-          <img src="pics/ellipsis-h.svg" alt="menu icon" />
-        </section>
-         <section class="todoDiv slideIn">
-          <label class="container"
-            ><input type="checkbox" class="checkInput" />
-
-            <span class="checkmark"></span>
-          </label>
-
-          <h3 class="listnNaming">ToDo Name</h3>
-
-          <img src="pics/ellipsis-h.svg" alt="menu icon" />
-        </section>
-         <section class="todoDiv slideIn">
-          <label class="container"
-            ><input type="checkbox" class="checkInput" />
-
-            <span class="checkmark"></span>
-          </label>
-
-          <h3 class="listnNaming">ToDo Name</h3>
-
-          <img src="pics/ellipsis-h.svg" alt="menu icon" />
-        </section>
-         <section class="todoDiv slideIn">
-          <label class="container"
-            ><input type="checkbox" class="checkInput" />
-
-            <span class="checkmark"></span>
-          </label>
-
-          <h3 class="listnNaming">ToDo Name</h3>
-
-          <img src="pics/ellipsis-h.svg" alt="menu icon" />
-        </section>
-        
       </main>
 
       <footer>
