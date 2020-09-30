@@ -34,7 +34,7 @@ header {
    border-radius: 0px 0px 10px 10px;
    z-index: 2;
    color: #364f6b;
-   box-shadow: 2px 2px 6px #e0e0e0de;
+   box-shadow: 2px 2px 4px #e0e0e0de;
 }
 
 header #addBtn, #closeBtn,#saveCheck {
@@ -90,7 +90,7 @@ button {
    box-shadow: 2px 2px 4px #e0e0e0de;
 }
 #title{
-   width: 80%;
+   width: 78%;
    height: 30px;
    border: none;
    outline: none;
@@ -134,7 +134,7 @@ footer {
    display: flex;
    justify-content: space-around;
    align-items: center;
-   box-shadow: 2px 2px 6px #e0e0e0de;
+   box-shadow: 2px 2px 4px #e0e0e0de;
 }
 
 .todoDiv {

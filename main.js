@@ -13,7 +13,6 @@ addBtn.addEventListener("click", () => {
    overlay(0,'block');
    saveBtn.addEventListener('click',function(){
    if(titleInput.value!==''){
-     
       let newSec = document.createElement("section");
       newSec.className = "todoDiv";
       let newLabel = document.createElement("label");
@@ -39,7 +38,9 @@ addBtn.addEventListener("click", () => {
       localStorage.setItem("mainHTML", mainSec.innerHTML);
       saveCu();
       isChecked();
+      titleInput.value='';
       overlay(0,'none');
+        this.removeEventListener("click", arguments.callee);
    }
    else{
       alert('Please add a task')
@@ -54,6 +55,7 @@ let isChecked = () => {
    let chs = document.getElementsByClassName("todoDiv");
    for (let ch of chs) {
       ch.addEventListener("click", (e) => {
+         
          let target = e.currentTarget;
  if (e.target.className === "checkInput") {
    if (e.target.checked) {
