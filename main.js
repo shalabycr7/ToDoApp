@@ -1,92 +1,81 @@
-let mainSec = document.querySelector('main');
+let mainSec = document.querySelector("main");
 
-const addBtn = document.querySelector('#addBtn');
+const addBtn = document.querySelector("#addBtn");
 
 let saveCu = () => {
+  let lsMainSec = localStorage.getItem("mainHTML");
 
-   let lsMainSec = localStorage.getItem('mainHTML');
+  lsMainSec == null
+    ? console.log("no added tasks")
+    : (mainSec.innerHTML = lsMainSec);
+};
 
-   (lsMainSec == null ? console.log('no added tasks') : mainSec.innerHTML = lsMainSec);
+addBtn.addEventListener("click", () => {
+  let taskName = prompt("Pls Enter Task");
 
-}
+  if (taskName) {
+    let newSec = document.createElement("section");
 
-addBtn.addEventListener('click', () => {
+    newSec.className = "todoDiv";
 
-   let taskName = prompt('Pls Enter Task');
+    newSec.classList.add("slideIn");
 
-   if (taskName) {
+    newSec.classList.remove("deleted");
 
-      let newSec = document.createElement('section');
+    let newLabel = document.createElement("label");
 
-      newSec.className = 'todoDiv';
+    newLabel.className = "container";
 
-      newSec.classList.add('slideIn');
+    let newInput = document.createElement("input");
 
-       newSec.classList.remove('deleted');
+    newInput.setAttribute("type", "checkbox");
 
-      let newLabel = document.createElement('label');
+    newInput.className = "checkInput";
 
-      newLabel.className = 'container';
+    let newSpan = document.createElement("span");
 
-      let newInput = document.createElement('input');
+    newSpan.className = "checkmark";
 
-      newInput.setAttribute('type', 'checkbox');
+    newLabel.appendChild(newInput);
 
-      newInput.className = 'checkInput';
+    newLabel.appendChild(newSpan);
 
-      let newSpan = document.createElement('span');
+    let newTaskBame = document.createElement("h3");
 
-      newSpan.className = 'checkmark';
+    newTaskBame.textContent = taskName;
 
-      newLabel.appendChild(newInput);
+    let newMenu = document.createElement("img");
 
-      newLabel.appendChild(newSpan);
+    newMenu.setAttribute("src", "pics/ellipsis-h.svg");
 
-      let newTaskBame = document.createElement('h3');
+    newMenu.setAttribute("alt", "menu icon");
 
-      newTaskBame.textContent = taskName;
+    newSec.appendChild(newLabel);
 
-      let newMenu=document.createElement('img');
+    newSec.appendChild(newTaskBame);
 
-      newMenu.setAttribute('src','pics/ellipsis-h.svg');
+    newSec.appendChild(newMenu);
 
-      newMenu.setAttribute('alt','menu icon');
+    mainSec.appendChild(newSec);
 
-      newSec.appendChild(newLabel);
+    localStorage.setItem("mainHTML", mainSec.innerHTML);
 
-      newSec.appendChild(newTaskBame);
-
-      newSec.appendChild(newMenu);
-
-      mainSec.appendChild(newSec);
-
-      localStorage.setItem('mainHTML', mainSec.innerHTML);
-
-      isChecked();
-
-   } else {
-
-      alert('Task Discarded')
-
-   }
-
+    isChecked();
+  } else {
+    alert("Task Discarded");
+  }
 });
 
 let isChecked = () => {
+  let checkInputs = document.getElementsByClassName("checkInput");
 
-   let checkInputs = document.getElementsByClassName('checkInput');
+  let chs = document.getElementsByClassName("todoDiv");
 
-   let chs = document.getElementsByClassName('todoDiv');
-
-   for (let ch of chs) {
-
-      ch.addEventListener('click', (e) => {
-
-         if (e.target.className === 'checkInput') {
-
-            if (e.target.checked) {
-
-               /* 
+  for (let ch of chs) {
+    ch.addEventListener("click", (e) => {
+      if (e.target.className === "checkInput") {
+        if (e.target.checked) {
+          /* 
 
                 e.currentTarget.remove();
 
@@ -94,31 +83,28 @@ let isChecked = () => {
 
                console.log('yes');*/
 
-               e.currentTarget.classList.add('deleted');
+          e.currentTarget.classList.add("deleted");
 
-               e.currentTarget.classList.remove('slideIn');
+          e.currentTarget.classList.remove("slideIn");
 
-               let target = e.currentTarget;
+          let target = e.currentTarget;
 
-               setTimeout(() => {
+          setTimeout(
+            () => {
+              target.remove();
 
-                  target.remove();
+              localStorage.setItem("mainHTML", mainSec.innerHTML);
 
-                  localStorage.setItem('mainHTML', mainSec.innerHTML);
-
-                 // console.log('yes');
-
-               },500, target);
-
-            }
-
-         }
-
-      })
-
-   };
-
-}
+              // console.log('yes');
+            },
+            500,
+            target
+          );
+        }
+      }
+    });
+  }
+};
 
 saveCu();
 

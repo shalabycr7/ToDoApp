@@ -1,83 +1,54 @@
 <!DOCTYPE html>
 
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>ToDo App</title>
 
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-   <title>ToDo App</title>
-
-      <link
-
+    <link
       rel="stylesheet"
-
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-
     />
 
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-</head>
+  <body>
+    <div class="wraper">
+      <header>
+        <h2>ToDo</h2>
 
-<body >
+        <img src="pics/plus-circle.svg" alt="add ToDo icon" id="addBtn" />
+      </header>
 
-   <div class="wraper">
-
-   <header>
-
-      <h2>ToDo</h2>
-
-            <img src="pics/plus-circle.svg" alt="add ToDo icon" id='addBtn' />
-
-   </header>
-
-  
-
-   <main>
-
+      <main>
         <section class="todoDiv slideIn">
+          <label class="container"
+            ><input type="checkbox" class="checkInput" />
 
-             <label class="container"
+            <span class="checkmark"></span>
+          </label>
 
-              ><input type="checkbox" class='checkInput' />
+          <h3 class="listnNaming">ToDo Name</h3>
 
-              <span class="checkmark"></span>
+          <img src="pics/ellipsis-h.svg" alt="menu icon" />
+        </section>
+      </main>
 
-            </label>
+      <footer>
+        <button>Icon</button>
 
-         <h3 class="listnNaming">ToDo Name</h3>
+        <button>Icon</button>
 
-         <img src="pics/ellipsis-h.svg" alt="menu icon" />
+        <button>Icon</button>
+      </footer>
+    </div>
 
-      </section>
-
-      
-
-       
-
-   </main>
-
-   
-
-   <footer>
-
-<button>Icon</button>
-
-<button>Icon</button>
-
-<button>Icon</button>
-
-   </footer>
-
-   </div>
-
-   <script src="main.js"></script>
-
-</body>
-
+    <script src="main.js"></script>
+  </body>
 </html>
