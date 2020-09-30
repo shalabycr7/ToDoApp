@@ -1,5 +1,7 @@
 let mainSec = document.querySelector("main");
 const addBtn = document.querySelector("#addBtn");
+let titleInput=document.querySelector('#title');
+let saveBtn=document.querySelector('#saveCheck');
 let saveCu = () => {
    let lsMainSec = localStorage.getItem("mainHTML");
    lsMainSec == null ?
@@ -7,11 +9,13 @@ let saveCu = () => {
       (mainSec.innerHTML = lsMainSec);
 };
 addBtn.addEventListener("click", () => {
-   let taskName = prompt("Pls Enter Task");
-   if (taskName) {
+  // let taskName = prompt("Pls Enter Task");
+   overlay(0,'block');
+   saveBtn.addEventListener('click',function(){
+   if(titleInput.value!==''){
+     
       let newSec = document.createElement("section");
       newSec.className = "todoDiv";
-      
       let newLabel = document.createElement("label");
       newLabel.className = "container";
       let newInput = document.createElement("input");
@@ -22,7 +26,7 @@ addBtn.addEventListener("click", () => {
       newLabel.appendChild(newInput);
       newLabel.appendChild(newSpan);
       let newTaskBame = document.createElement("h3");
-      newTaskBame.textContent = taskName;
+      newTaskBame.textContent = titleInput.value;
       let newMenu = document.createElement("img");
       newMenu.setAttribute("src", "pics/ellipsis-h.svg");
       newMenu.setAttribute("alt", "menu icon");
@@ -35,10 +39,12 @@ addBtn.addEventListener("click", () => {
       localStorage.setItem("mainHTML", mainSec.innerHTML);
       saveCu();
       isChecked();
-  
-   } else {
-      alert("Task Discarded");
+      overlay(0,'none');
    }
+   else{
+      alert('Please add a task')
+   }
+   });
 }
 );
 saveCu();
@@ -63,12 +69,12 @@ localStorage.setItem("mainHTML", mainSec.innerHTML);
 }
 }
 if(e.target.className==='menuIcon'){
-   overlay(0,'block');
+   console.log('menu')
 }
    });
    }
 };
 isChecked();
 function overlay(index,state){
-   document.querySelectorAll('.overlay')[index].style.display=state
+   document.querySelectorAll('.overlay')[index].style.display=state;
 }
