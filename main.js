@@ -48,6 +48,8 @@ let isChecked = () => {
       e.currentTarget.classList.add("deleted");
    e.currentTarget.classList.remove("slideIn");
    let target = e.currentTarget;
+   let imgChild=target.children[2];
+   imgChild.remove();
    setTimeout(() => {
    target.remove();
 localStorage.setItem("mainHTML", mainSec.innerHTML);
