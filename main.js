@@ -11,7 +11,7 @@ addBtn.addEventListener("click", () => {
    if (taskName) {
       let newSec = document.createElement("section");
       newSec.className = "todoDiv";
-      newSec.classList.add("slideIn");
+      
       let newLabel = document.createElement("label");
       newLabel.className = "container";
       let newInput = document.createElement("input");
@@ -29,14 +29,19 @@ addBtn.addEventListener("click", () => {
       newSec.appendChild(newLabel);
       newSec.appendChild(newTaskBame);
       newSec.appendChild(newMenu);
+      newSec.classList.add("slideIn");
       mainSec.appendChild(newSec);
       newSec.scrollIntoView();
       localStorage.setItem("mainHTML", mainSec.innerHTML);
+      saveCu();
       isChecked();
+  
    } else {
       alert("Task Discarded");
    }
-});
+}
+);
+saveCu();
 
 let isChecked = () => {
    let checkInputs = document.getElementsByClassName("checkInput");
@@ -49,7 +54,7 @@ let isChecked = () => {
    e.currentTarget.classList.remove("slideIn");
    let target = e.currentTarget;
    let imgChild=target.children[2];
-   imgChild.remove();
+  imgChild.remove();
    setTimeout(() => {
    target.remove();
 localStorage.setItem("mainHTML", mainSec.innerHTML);
@@ -59,6 +64,4 @@ localStorage.setItem("mainHTML", mainSec.innerHTML);
    });
    }
 };
-
-saveCu();
 isChecked();
