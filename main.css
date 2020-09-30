@@ -1,0 +1,364 @@
+*{
+
+   padding: 0;
+
+   margin: 0;
+
+   box-sizing: border-box;
+
+}
+
+body {
+
+   height: 100vh;
+
+   width: 100%;
+
+    display: flex;
+
+    flex-flow: column nowrap;
+
+    
+
+    align-items:center;
+
+    background:  #F0F0F0;
+
+}
+
+.wraper{
+
+   display: flex;
+
+   flex-flow: column nowrap;
+
+   height: 100%;
+
+   width: 100%;
+
+}
+
+header{
+
+   display: flex;
+
+   justify-content: space-between;
+
+   align-items: center;
+
+   height: 100px;
+
+   border-bottom:3px solid #DEE2E3;
+
+   background: #DEE2E3;
+
+   padding: 0 10px;
+
+   width: 100%;
+
+   position: fixed;
+
+   top: 0;
+
+   left: 0;
+
+  border-radius:0px 0px 10px 10px;
+
+   z-index: 2;
+
+   color: #364F6B;
+
+      box-shadow: 2px 2px 6px #E0E0E0DE ;
+
+ 
+
+}
+
+header #addBtn{
+
+   width: 40px;
+
+   height: 40px;
+
+   padding: 5px;
+
+}
+
+button{
+
+   width: 40px;
+
+   height: 40px;
+
+   outline: none;
+
+   border: none;
+
+   border-radius:50%;
+
+   background: #ED6663;
+
+   color: #1B262C;
+
+   padding: 5px;
+
+   
+
+}
+
+input{
+
+   height: 25px;
+
+   width: 25px;
+
+ 
+
+}
+
+main{
+
+   flex: 1;
+
+   
+
+   padding: 20px 10px;
+
+   margin-top:93px;
+
+   margin-bottom:40px;
+
+   
+
+}
+
+footer{
+
+   height: 80px;
+
+   
+
+   background: #DEE2E3;
+
+   padding: 10px 10px;
+
+   width: 100%;
+
+   position: fixed;
+
+   bottom: 0;
+
+   left: 0;
+
+   color: #364F6B;
+
+   display: flex;
+
+   justify-content: space-around;
+
+   align-items:center;
+
+   box-shadow: 2px 2px 6px #E0E0E0DE ;
+
+}
+
+.todoDiv{
+
+   width: 100%;
+
+   height:80px;
+
+   
+
+   position: relative;
+
+   padding: 5px 10px;
+
+   margin-bottom: 35px;
+
+   display: flex;
+
+   justify-content: space-between;
+
+   align-items:center;
+
+   border-radius:10px;
+
+   background: #DEE2E3;
+
+   color: #364F6B;
+
+   overflow: hidden;
+
+   border-left: 3px solid #364F6B;
+
+     box-shadow: 2px 2px 6px #E0E0E0DE ;
+
+}
+
+.todoDiv h3{
+
+   
+
+   padding:7px;
+
+   margin-right: auto;
+
+}
+
+.todoDiv h3:first-letter {
+
+  text-transform: capitalize;
+
+}
+
+.todoDiv img{
+
+   width: 25px;
+
+   
+
+}
+
+.deleted{
+
+   border: 3px solid red ;
+
+   color: red;
+
+   animation: backOutLeft;
+
+  animation-duration: 1000ms;
+
+}
+
+.slideIn{
+
+   animation:fadeInLeft;
+
+  animation-duration: 500ms;
+
+}
+
+/* Customize the label (the container) */
+
+.container {
+
+  display: block;
+
+  position: relative;
+
+  padding-left: 35px;
+
+  margin-bottom:26px;
+
+  cursor: pointer;
+
+  font-size: 22px;
+
+  -webkit-user-select: none;
+
+  -moz-user-select: none;
+
+  -ms-user-select: none;
+
+  user-select: none;
+
+}
+
+/* Hide the browser's default checkbox */
+
+.container input {
+
+  position: absolute;
+
+  opacity: 0;
+
+  cursor: pointer;
+
+  height: 0;
+
+  width: 0;
+
+}
+
+/* Create a custom checkbox */
+
+.checkmark {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  height: 25px;
+
+  width: 25px;
+
+  background-color: #364F6B;
+
+  border-radius: 50%;
+
+}
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input ~ .checkmark {
+
+  background-color: #364F6B;
+
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.container input:checked ~ .checkmark {
+
+  background-color: red;
+
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+
+  content: "";
+
+  position: absolute;
+
+  display: none;
+
+}
+
+/* Show the checkmark when checked */
+
+.container input:checked ~ .checkmark:after {
+
+  display: block;
+
+}
+
+/* Style the checkmark/indicator */
+
+.container .checkmark:after {
+
+  left: 9px;
+
+  top: 5px;
+
+  width: 5px;
+
+  height: 10px;
+
+  border: solid white;
+
+  border-width: 0 3px 3px 0;
+
+  -webkit-transform: rotate(45deg);
+
+  -ms-transform: rotate(45deg);
+
+  transform: rotate(45deg);
+
+}
+
