@@ -10,7 +10,8 @@ body {
    display: flex;
    flex-flow: column nowrap;
    align-items: center;
-   background: #f0f0f0;
+   background: #212121;
+   
 }
 
 .wraper {
@@ -25,16 +26,17 @@ header {
    justify-content: space-between;
    align-items: center;
    height: 100px;
-   border-bottom: 3px solid #dee2e3;
-   background: #dee2e3;
+   
+   background: #212121;
+
    padding: 0 10px;
    width: 100%;
    position: fixed;
    top: 0;
    border-radius: 0px 0px 10px 10px;
    z-index: 2;
-   color: #364f6b;
-   box-shadow: 2px 2px 4px #e0e0e0de;
+   color: #0078D7;
+   box-shadow: 2px 2px 4px #424242;
 }
 
 header #addBtn, #closeBtn,#saveCheck {
@@ -50,7 +52,7 @@ button {
    outline: none;
    border: none;
    border-radius: 50%;
-   background: #ed6663;
+   background: #0078D7;
    color: #1b262c;
    padding: 5px;
 }
@@ -125,16 +127,17 @@ main {
 
 footer {
    height: 80px;
-   background: #dee2e3;
+  background: #212121;
+  
    padding: 10px 10px;
    width: 100%;
    position: fixed;
    bottom: 0;
-   color: #364f6b;
+   color: #0078D7;
    display: flex;
    justify-content: space-around;
    align-items: center;
-   box-shadow: 2px 2px 4px #e0e0e0de;
+   box-shadow: 2px 2px 4px #424242;
 }
 
 .todoDiv {
@@ -147,11 +150,12 @@ footer {
    justify-content: space-between;
    align-items: center;
    border-radius: 10px;
-   background: #dee2e3;
-   color: #364f6b;
+   background: #212121;
+   
+   color: #0078D7;
    overflow: hidden;
-   border-left: 3px solid #364f6b;
-   box-shadow: 2px 2px 6px #e0e0e0de;
+   border-left: 3px solid #0078D7;
+   box-shadow: 0px 0px 6px #424242;
 }
 
 .todoDiv h3 {
@@ -167,25 +171,28 @@ footer {
    width: 25px;
 }
 .onTop{
-   width: 85%;
-   height: 100%;
+   width: 240px;
+   height: 80px;
    position: absolute;
-   top: 0;
-   left: 0px;
-   background: #dee2e3;
-   display: flex;
+  left: 20px;
+  
+   background: #212121;
+   
    justify-content: space-between;
    align-items:center;
    padding: 20px 10px;
- opacity: 0;
- 
+ z-index: 3;
+ border-right: 3px solid #0078D7;
+ border-radius:10px;
+ display: none;
+ transition: opacity 250ms;
 }
 
 .editBtn{
-   width: 150px;
-   height: 150px;
+   width: 40px;
+   height: 40px;
    padding: 5px;
-   border: 1px solid red;
+   
 }
 .deleted {
    border: 3px solid red;
@@ -199,12 +206,7 @@ footer {
    animation-duration: 500ms;
 }
 .traySlideLeft{
-   opacity: 1;
-   border-radius: 0 10px 10px 0;
-      animation: slideInRight;
-      animation-duration: 700ms;
-      
-   
+   display: flex;
 }
 /* Customize the label (the container) */
 .container {
@@ -236,7 +238,7 @@ footer {
    left: 0;
    height: 25px;
    width: 25px;
-   border: 2px solid #364f6b;
+   border: 2px solid #0078D7;
    border-radius: 50%;
 }
 

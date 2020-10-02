@@ -1,7 +1,10 @@
 let mainSec = document.querySelector("main");
 const addBtn = document.querySelector("#addBtn");
+const editBtn = document.querySelector(".editBtn");
+let tray = document.querySelector('.onTop');
 let titleInput=document.querySelector('#title');
 let saveBtn=document.querySelector('#saveCheck');
+
 let saveCu = () => {
    let lsMainSec = localStorage.getItem("mainHTML");
    lsMainSec == null ?
@@ -29,6 +32,7 @@ addBtn.addEventListener("click", () => {
       let newMenu = document.createElement("img");
       newMenu.setAttribute("src", "pics/ellipsis-h.svg");
       newMenu.setAttribute("alt", "menu icon");
+      newMenu.classList.add('menuIcon');
       newSec.appendChild(newLabel);
       newSec.appendChild(newTaskBame);
       newSec.appendChild(newMenu);
@@ -43,7 +47,7 @@ addBtn.addEventListener("click", () => {
         this.removeEventListener("click", arguments.callee);
    }
    else{
-      alert('Please add a task')
+      alert('Please add a task');
    }
    });
 }
@@ -57,6 +61,9 @@ let isChecked = () => {
       ch.addEventListener("click", (e) => {
          
          let target = e.currentTarget;
+         let sideMenuTray = document.querySelector('.onTop');
+         
+         sideMenuTray.style.top = `${target.offsetTop}px`;
  if (e.target.className === "checkInput") {
    if (e.target.checked) {
       e.currentTarget.classList.add("deleted");
@@ -72,15 +79,26 @@ localStorage.setItem("mainHTML", mainSec.innerHTML);
 }
 if(e.target.className==='menuIcon'){
    
-let q=document.querySelector('.onTop');
-//q.style.animation='hh 1s alternate';
-q.classList.toggle('traySlideLeft')
-console.log('nb')
+tray.classList.toggle('traySlideLeft');
+   sideMenu(target);
 }
    });
    }
 };
 isChecked();
-function overlay(index,state){
+
+let overlay=(index,state)=>{
    document.querySelectorAll('.overlay')[index].style.display=state;
+}
+
+let sideMenu=(target)=>{
+editBtn.addEventListener('click',function(){
+  let editedTaskName=prompt('Please Enter New Task Title');
+   let currentTaskName=target.children[1];
+   currentTaskName.textContent=editedTaskName;
+  tray.classList.toggle('traySlideLeft');
+  localStorage.setItem("mainHTML", mainSec.innerHTML);
+   saveCu();
+   
+})
 }
