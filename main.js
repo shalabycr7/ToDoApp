@@ -88,11 +88,9 @@ tray.classList.toggle('traySlideLeft');
    }
 };
 
-
 let overlay=(index,state)=>{
    document.querySelectorAll('.overlay')[index].style.display=state;
 }
-
 
 let sideMenu=(target)=>{
 editBtn.addEventListener('click',function(){
@@ -102,9 +100,12 @@ editBtn.addEventListener('click',function(){
    currentTaskName.textContent=editedTaskName;
   tray.classList.toggle('traySlideLeft');
   localStorage.setItem("mainHTML", mainSec.innerHTML);
+  
    saveCu();
+   this.removeEventListener("click", arguments.callee);
    isChecked();
    
   }
 })
+
 }
