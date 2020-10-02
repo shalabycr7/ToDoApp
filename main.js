@@ -11,8 +11,8 @@ let saveCu = () => {
       console.log("no added tasks") :
       (mainSec.innerHTML = lsMainSec);
 };
+
 addBtn.addEventListener("click", () => {
-  // let taskName = prompt("Pls Enter Task");
    overlay(0,'block');
    saveBtn.addEventListener('click',function(){
    if(titleInput.value!==''){
@@ -40,11 +40,11 @@ addBtn.addEventListener("click", () => {
       mainSec.appendChild(newSec);
       newSec.scrollIntoView();
       localStorage.setItem("mainHTML", mainSec.innerHTML);
+      titleInput.value='';
       saveCu();
       isChecked();
-      titleInput.value='';
       overlay(0,'none');
-        this.removeEventListener("click", arguments.callee);
+      this.removeEventListener("click", arguments.callee);
    }
    else{
       alert('Please add a task');
@@ -52,7 +52,10 @@ addBtn.addEventListener("click", () => {
    });
 }
 );
-saveCu();
+function pageOnLoad(){
+   saveCu();
+   isChecked();
+}
 
 let isChecked = () => {
    let checkInputs = document.getElementsByClassName("checkInput");
@@ -64,41 +67,44 @@ let isChecked = () => {
          let sideMenuTray = document.querySelector('.onTop');
          
          sideMenuTray.style.top = `${target.offsetTop}px`;
- if (e.target.className === "checkInput") {
+ if (e.target&&e.target.className === "checkInput") {
    if (e.target.checked) {
       e.currentTarget.classList.add("deleted");
-   e.currentTarget.classList.remove("slideIn");
-   //
-   let imgChild=target.children[2];
-  imgChild.remove();
-   setTimeout(() => {
-   target.remove();
-localStorage.setItem("mainHTML", mainSec.innerHTML);
-},500,target);
+      e.currentTarget.classList.remove("slideIn");
+      //
+      let imgChild = target.children[2];
+      imgChild.remove();
+      setTimeout(() => {
+         target.remove();
+         localStorage.setItem("mainHTML", mainSec.innerHTML);
+      }, 500, target);
+   }
 }
-}
-if(e.target.className==='menuIcon'){
-   
+if(e.target&&e.target.className==='menuIcon'){
 tray.classList.toggle('traySlideLeft');
    sideMenu(target);
 }
    });
    }
 };
-isChecked();
+
 
 let overlay=(index,state)=>{
    document.querySelectorAll('.overlay')[index].style.display=state;
 }
 
+
 let sideMenu=(target)=>{
 editBtn.addEventListener('click',function(){
   let editedTaskName=prompt('Please Enter New Task Title');
+  if (editedTaskName){
    let currentTaskName=target.children[1];
    currentTaskName.textContent=editedTaskName;
   tray.classList.toggle('traySlideLeft');
   localStorage.setItem("mainHTML", mainSec.innerHTML);
    saveCu();
+   isChecked();
    
+  }
 })
 }
