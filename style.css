@@ -178,6 +178,7 @@ footer {
 
 .todoDiv img {
    width: 25px;
+   border: 1px solid red;
 }
 .onTop{
    width: 240px;

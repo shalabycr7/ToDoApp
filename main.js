@@ -71,22 +71,16 @@ let isChecked = () => {
       ch.addEventListener("click", (e) => {
          
          let target = e.currentTarget;
-         show(target);
+        
          let sideMenuTray = document.querySelector('.onTop');
          
          sideMenuTray.style.top = `${target.offsetTop}px`;
+ if(e.target.tagName=='SECTION'){
+    show(target);
+  
+ }        
  if (e.target&&e.target.className === "checkInput") {
-   if (e.target.checked) {
-      e.currentTarget.classList.add("deleted");
-      e.currentTarget.classList.remove("slideIn");
-      //
-      let imgChild = target.children[3];
-      imgChild.remove();
-      setTimeout(() => {
-         target.remove();
-         localStorage.setItem("mainHTML", mainSec.innerHTML);
-      }, 500, target);
-   }
+   taskDone(e,target);
 }
 if(e.target&&e.target.className==='menuIcon'){
 tray.classList.toggle('traySlideLeft');
@@ -95,13 +89,27 @@ tray.classList.toggle('traySlideLeft');
    });
    }
 };
+
+function taskDone(event,tar){
+   if (event.target.checked) {
+      event.currentTarget.classList.add("deleted");
+      event.currentTarget.classList.remove("slideIn");
+      //
+      let imgChild = tar.children[3];
+      imgChild.remove();
+      setTimeout(() => {
+         tar.remove();
+         localStorage.setItem("mainHTML", mainSec.innerHTML);
+      }, 500, tar);
+   }
+}
 function show(eTarget){
    overlay(1,'block');
    let j=eTarget.children[1];
    let u=document.querySelector('.infoReadOnly #title');
    u.value=j.textContent;
    u.setAttribute('readOnly','true')
-   console.log(j)
+
 }
 let overlay=(index,state)=>{
    document.querySelectorAll('.overlay')[index].style.display=state;
