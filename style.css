@@ -161,7 +161,12 @@ footer {
   /* box-shadow: 0px 0px 6px #424242;*/
    
 }
-
+.todoDiv .timeSpan{
+   padding: 10px;
+   margin-right: 10px;
+   font-size: 19px;
+   
+}
 .todoDiv h3 {
    padding: 7px;
    margin-right: auto;

@@ -33,17 +33,24 @@ addBtn.addEventListener("click", () => {
       newMenu.setAttribute("src", "pics/ellipsis-h.svg");
       newMenu.setAttribute("alt", "menu icon");
       newMenu.classList.add('menuIcon');
+    let newTime=document.createElement('span');
+      newTime.className='timeSpan';
       newSec.appendChild(newLabel);
       newSec.appendChild(newTaskBame);
+            newSec.appendChild(newTime);
       newSec.appendChild(newMenu);
+
+      
       newSec.classList.add("slideIn");
       mainSec.appendChild(newSec);
+      getTime('timeSpan');
       newSec.scrollIntoView();
       localStorage.setItem("mainHTML", mainSec.innerHTML);
       titleInput.value='';
       saveCu();
       isChecked();
       overlay(0,'none');
+     
       this.removeEventListener("click", arguments.callee);
    }
    else{
@@ -64,6 +71,7 @@ let isChecked = () => {
       ch.addEventListener("click", (e) => {
          
          let target = e.currentTarget;
+         show(target);
          let sideMenuTray = document.querySelector('.onTop');
          
          sideMenuTray.style.top = `${target.offsetTop}px`;
@@ -72,7 +80,7 @@ let isChecked = () => {
       e.currentTarget.classList.add("deleted");
       e.currentTarget.classList.remove("slideIn");
       //
-      let imgChild = target.children[2];
+      let imgChild = target.children[3];
       imgChild.remove();
       setTimeout(() => {
          target.remove();
@@ -87,7 +95,14 @@ tray.classList.toggle('traySlideLeft');
    });
    }
 };
-
+function show(eTarget){
+   overlay(1,'block');
+   let j=eTarget.children[1];
+   let u=document.querySelector('.infoReadOnly #title');
+   u.value=j.textContent;
+   u.setAttribute('readOnly','true')
+   console.log(j)
+}
 let overlay=(index,state)=>{
    document.querySelectorAll('.overlay')[index].style.display=state;
 }
@@ -100,12 +115,27 @@ editBtn.addEventListener('click',function(){
    currentTaskName.textContent=editedTaskName;
   tray.classList.toggle('traySlideLeft');
   localStorage.setItem("mainHTML", mainSec.innerHTML);
-  
    saveCu();
    this.removeEventListener("click", arguments.callee);
    isChecked();
    
   }
 })
+}
 
+function getTime(classN) {
+   var date = new Date();
+   var hours = date.getHours();
+   var minutes = date.getMinutes();
+   // Check whether AM or PM
+   var newformat = hours >= 12 ? "PM" : "AM";
+   // Find current hour in AM-PM Format
+   hours = hours % 12;
+   // To display "0" as "12"
+   hours = hours ? hours : 12;
+   minutes = minutes < 10 ? "0" + minutes : minutes;
+   var t = document.getElementsByClassName(classN);
+   var tLast = t[t.length - 1];
+
+   tLast.textContent = hours + ":" + minutes + " " + newformat;
 }
